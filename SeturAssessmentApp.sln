@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setur.APIApp", "Setur.APIApp\Setur.APIApp.csproj", "{9603DCF2-FB3E-4BF0-92F6-3324705C4CA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setur.Entity", "Setur.Entity\Setur.Entity.csproj", "{91EF8DD2-E858-462D-85C5-067F2AF3B3FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setur.Data", "Setur.Data\Setur.Data.csproj", "{91F58097-E2A2-4A60-A12D-91348A895565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setur.Business", "Setur.Business\Setur.Business.csproj", "{90C911E5-BE0E-4851-9143-B3B2CBAAB3EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9603DCF2-FB3E-4BF0-92F6-3324705C4CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9603DCF2-FB3E-4BF0-92F6-3324705C4CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9603DCF2-FB3E-4BF0-92F6-3324705C4CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9603DCF2-FB3E-4BF0-92F6-3324705C4CA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91EF8DD2-E858-462D-85C5-067F2AF3B3FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91EF8DD2-E858-462D-85C5-067F2AF3B3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91EF8DD2-E858-462D-85C5-067F2AF3B3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91EF8DD2-E858-462D-85C5-067F2AF3B3FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91F58097-E2A2-4A60-A12D-91348A895565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F58097-E2A2-4A60-A12D-91348A895565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F58097-E2A2-4A60-A12D-91348A895565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F58097-E2A2-4A60-A12D-91348A895565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90C911E5-BE0E-4851-9143-B3B2CBAAB3EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90C911E5-BE0E-4851-9143-B3B2CBAAB3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90C911E5-BE0E-4851-9143-B3B2CBAAB3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90C911E5-BE0E-4851-9143-B3B2CBAAB3EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D30581F-94EE-46E9-BAB4-4E6ECE9536C7}
+	EndGlobalSection
+EndGlobal
