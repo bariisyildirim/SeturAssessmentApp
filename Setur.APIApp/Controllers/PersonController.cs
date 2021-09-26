@@ -54,5 +54,15 @@ namespace Setur.APIApp.Controllers
             return Json(true);
         }
 
+        // DELETE: PersonController/Delete/id
+        [Route("Delete")]
+        [HttpDelete]
+
+        public ActionResult Delete([FromHeader] string id)
+        {
+            _personService.Remove(id);
+            return Json(true);
+        }
+
     }
 }
