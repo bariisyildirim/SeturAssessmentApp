@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Setur.Business.Services;
+using Setur.Entity.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,10 +33,13 @@ namespace Setur.APIApp.Controllers
             return View();
         }
 
-        // GET: PersonController/Create
-        public ActionResult Create()
+        // POST: PersonController/Create
+        [Route("Create")]
+        [HttpPost]
+        public ActionResult<Person> Create(Person person)
         {
-            return View();
+            var data = _personService.Create(person);
+            return Json(data);
         }
 
         // POST: PersonController/Create
