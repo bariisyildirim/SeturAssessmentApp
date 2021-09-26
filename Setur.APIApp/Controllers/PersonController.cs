@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Setur.APIApp.Models;
 using Setur.Business.Services;
 using Setur.Entity.Models;
 using Setur.Entity.Models.Enums;

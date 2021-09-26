@@ -52,10 +52,17 @@ namespace Setur.Business.Services
                     {
                         LocationReport locationReport = reportList.FirstOrDefault<LocationReport>(x => x.LocationName == contact.Content);
 
+                        var hasPhoneNumber = item.ContactInfo.FirstOrDefault(s => s.Type == InformationType.PhoneNumber);
+
                         if (locationReport != null)
                         {
+                            if (hasPhoneNumber != null)
+                            {
+                                locationReport.PeoplePhoneNumberCount += 1;
+                            }
+                            
                             reportList.Remove(locationReport);
-                            locationReport.LocationCount = locationReport.LocationCount + 1;
+                            locationReport.LocationCount += 1;
                             reportList.Add(locationReport);
                         }
                         else
@@ -64,8 +71,7 @@ namespace Setur.Business.Services
                             {
                                 LocationCount = 1,
                                 LocationName = contact.Content,
-                                PeopleCount = 0,
-                                PeoplePhoneNumberCount = 0
+                                PeoplePhoneNumberCount = hasPhoneNumber == null?0:1
                             });
                         }
                     }

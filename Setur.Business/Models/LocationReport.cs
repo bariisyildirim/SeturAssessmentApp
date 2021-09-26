@@ -9,7 +9,6 @@ namespace Setur.Business.Models
     {
         public string LocationName { get; set; }
         public int LocationCount { get; set; }
-        public int PeopleCount { get; set; }
         public int PeoplePhoneNumberCount { get; set; }
     }
 }
