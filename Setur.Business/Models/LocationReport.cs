@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Setur.APIApp.Models
+namespace Setur.Business.Models
 {
     public class LocationReport
     {

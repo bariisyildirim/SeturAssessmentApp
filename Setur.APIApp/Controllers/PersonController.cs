@@ -46,6 +46,28 @@ namespace Setur.APIApp.Controllers
             var data = _personService.Create(person);
             return Json(data);
         }
+        
+        // POST: PersonController/InsertPhoneInfo
+        [Route("InsertPhoneInfo")]
+        [HttpPost]
+        public ActionResult<Person> InsertPhoneInfo([FromHeader]string id, [FromBody] Contact contact)
+        {
+            var data = _personService.AddContact(id, contact);
+
+            return Json(data);
+        }
+
+        
+        // DELETE: PersonController/DeletePhoneInfo
+        [Route("DeletePhoneInfo")]
+        [HttpPost]
+        public ActionResult<Person> DeletePhoneInfo([FromHeader] string id, [FromBody] Contact contact)
+        {
+            var data = _personService.RemoveContact(id, contact);
+
+            return Json(data);
+        }
+        
 
         // PUT: PersonController/id
         [Route("Update")]
@@ -71,39 +93,7 @@ namespace Setur.APIApp.Controllers
 
         public ActionResult Report()
         {
-            List<Person> data = _personService.Get();
-
-            List<LocationReport> reportList = new List<LocationReport>();
-
-            foreach (var item in data)
-            {
-                foreach (var contact in item.ContactInfo)
-                {
-                    if (contact.Type == InformationType.Location)
-                    {
-                        LocationReport locationReport = reportList.FirstOrDefault<LocationReport>(x => x.LocationName == contact.Content);
-
-                        if (locationReport != null)
-                        {
-                            reportList.Remove(locationReport);
-                            locationReport.LocationCount = locationReport.LocationCount + 1;
-                            reportList.Add(locationReport);
-                        }
-                        else
-                        {
-                            reportList.Add(new LocationReport
-                            {
-                                LocationCount = 1,
-                                LocationName = contact.Content,
-                                PeopleCount = 0,
-                                PeoplePhoneNumberCount = 0
-                            });
-                        }
-                    }
-                }
-            }
-
-            return Json(reportList.OrderByDescending(s => s.LocationCount));
+            return Json(_personService.Report());
         }
 
     }
