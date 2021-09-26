@@ -19,9 +19,11 @@ namespace Setur.APIApp.Controllers
         }
 
         // GET: PersonController
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var data = _personService.Get();
+            return Json(data);
         }
 
         // GET: PersonController/Details/5
