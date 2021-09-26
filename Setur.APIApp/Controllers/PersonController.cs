@@ -27,10 +27,13 @@ namespace Setur.APIApp.Controllers
             return Json(data);
         }
 
-        // GET: PersonController/Details/5
-        public ActionResult Details(int id)
+        // GET: PersonController/id
+        [Route("GetWithId")]
+        [HttpGet]
+        public ActionResult GetWithId([FromQuery] string id)
         {
-            return View();
+            var data = _personService.Get(id);
+            return Json(data);
         }
 
         // POST: PersonController/Create
@@ -42,61 +45,7 @@ namespace Setur.APIApp.Controllers
             return Json(data);
         }
 
-        // POST: PersonController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: PersonController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
-        // POST: PersonController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PersonController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: PersonController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
