@@ -45,7 +45,14 @@ namespace Setur.APIApp.Controllers
             return Json(data);
         }
 
-
+        // PUT: PersonController/id
+        [Route("Update")]
+        [HttpPut]
+        public ActionResult Update([FromBody] Person person)
+        {
+            _personService.Update(person);
+            return Json(true);
+        }
 
     }
 }
