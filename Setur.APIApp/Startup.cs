@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Setur.Business.Services;
 using Setur.Data.Models;
 using Setur.Data.Repositories;
 using System;
@@ -39,7 +40,9 @@ namespace Setur.APIApp
 
             services.AddSingleton<IPersonRepository, PersonRepository>();
 
-           
+            services.AddSingleton<IPersonService, PersonService>();
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

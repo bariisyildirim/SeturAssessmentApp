@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Setur.Data\Setur.Data.csproj" />
+    <ProjectReference Include="..\Setur.Entity\Setur.Entity.csproj" />
+  </ItemGroup>
+
 </Project>
