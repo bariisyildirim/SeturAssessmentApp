@@ -6,7 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Setur.Data.Models;
+using Setur.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,11 +30,16 @@ namespace Setur.APIApp
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Setur.APIApp", Version = "v1" });
-            });
+            // requires using Microsoft.Extensions.Options
+            services.Configure<PersonDatabaseSettings>(
+                Configuration.GetSection(nameof(PersonDatabaseSettings)));
+
+            services.AddSingleton<IPersonDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<PersonDatabaseSettings>>().Value);
+
+            services.AddSingleton<IPersonRepository, PersonRepository>();
+
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
