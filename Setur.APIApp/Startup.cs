@@ -42,7 +42,7 @@ namespace Setur.APIApp
 
             services.AddSingleton<IPersonService, PersonService>();
 
-            
+            services.AddControllers().AddNewtonsoftJson(options => options.UseMemberCasing());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,8 +51,8 @@ namespace Setur.APIApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Setur.APIApp v1"));
+                //app.UseSwagger();
+                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Setur.APIApp v1"));
             }
 
             app.UseHttpsRedirection();
