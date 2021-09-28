@@ -96,8 +96,7 @@ namespace Setur.APIApp.Controllers
 
         public async Task<ActionResult> GetReport()
         {
-            var sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri("queue:request-report"));
-
+            var sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri("queue:request-report")); 
             await sendEndpoint.Send<ReportMessaging>(new ReportMessaging() {ReportStatus=0 });
             return Json("Rapor istendi");
         }
