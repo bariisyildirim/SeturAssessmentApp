@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Setur.Data", "Setur.Data\Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Setur.Business", "Setur.Business\Setur.Business.csproj", "{90C911E5-BE0E-4851-9143-B3B2CBAAB3EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeturAPIAPP_ReportQueue", "SeturAPIAPP_ReportQueue\SeturAPIAPP_ReportQueue.csproj", "{933DF876-78D4-453E-9A01-E11A58976E02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAPIAPP_ReportQueue", "SeturAPIAPP_ReportQueue\SeturAPIAPP_ReportQueue.csproj", "{933DF876-78D4-453E-9A01-E11A58976E02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeturAPIApp.Test", "SeturAPIApp.Test\SeturAPIApp.Test.csproj", "{D6A937F6-56F0-4CC5-8793-037836919E29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{933DF876-78D4-453E-9A01-E11A58976E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{933DF876-78D4-453E-9A01-E11A58976E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{933DF876-78D4-453E-9A01-E11A58976E02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A937F6-56F0-4CC5-8793-037836919E29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A937F6-56F0-4CC5-8793-037836919E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A937F6-56F0-4CC5-8793-037836919E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A937F6-56F0-4CC5-8793-037836919E29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
