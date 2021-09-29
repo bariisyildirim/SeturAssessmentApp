@@ -43,23 +43,6 @@ namespace Setur.APIApp
 
             services.AddSingleton<IPersonService, PersonService>();
 
-            services.AddMassTransit(x =>
-            {
-                //Default Port: 5672
-                x.UsingRabbitMq((context, cfg) =>
-                {
-                    cfg.Host(Configuration["RabbitMQUrl"], "/", host =>
-                    {
-                        host.Username("guest");
-                        host.Password("guest");
-                    });
-                });
-            });
-
-
-
-            services.AddMassTransitHostedService();
-
             services.AddControllers().AddNewtonsoftJson(options => options.UseMemberCasing());
         }
 

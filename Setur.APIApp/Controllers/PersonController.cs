@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Setur.Business.Services;
 using Setur.Entity.Models;
 using Setur.Entity.Models.Enums;
-using Setur.Entity.Models.MessageQueuing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +16,9 @@ namespace Setur.APIApp.Controllers
     public class PersonController : Controller
     {
         private IPersonService _personService;
-        private ISendEndpointProvider _sendEndpointProvider;
-        public PersonController(IPersonService personService, ISendEndpointProvider sendEndpointProvider)
+        public PersonController(IPersonService personService)
         {
             _personService = personService;
-            _sendEndpointProvider = sendEndpointProvider;
         }
 
         // GET: PersonController
@@ -91,15 +88,12 @@ namespace Setur.APIApp.Controllers
             return Json(true);
         }
 
-        [Route("GetReport")]
+        [Route("Report")]
         [HttpGet]
 
-        public async Task<ActionResult> GetReport()
+        public ActionResult Report()
         {
-            var sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri("queue:request-report"));
-
-            await sendEndpoint.Send<ReportMessaging>(new ReportMessaging() {ReportStatus=0 });
-            return Json("Rapor istendi");
+            return Json(_personService.Report());
         }
 
     }
