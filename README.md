@@ -14,9 +14,11 @@ Bu sınıfların içerisinde projeye bağlantı sağlayacak database verilerinin
 Setur.Business katmanında ise servislerin yapacağı işler koda döküldü. (Örneğin Create isimli method ile oluşturulan servis Rehberde kişi oluşturmak amacı ile yazılmıştır.)
 Ek olarak raporlama tarafında kullanılan veriler bu katmanın içerinde tutuldu. Setur.APIApp tarafı projenin ayağa kaldırıldığı taraftır.
 Bu kısımda Controllers klasörü içerisinde servisler çağrıldı ve proje ayağa kaldırıldı.
+Unit test için solution içerisinde ayrı bir proje açıldı. Bu proje xUnit framework ortamında geliştirildi. Projenin testleri için StartupTest ve PersonControllerTest adında iki ayrı test sınıfı oluşturuldu. StartupTest sınıfı içerisinde interface sınıflarının ve verilerin tutulduğu yerlerin testleri gerçekleştirildi. PersonControllerTest sınıfında ise proje içerisinde kullanılmış olan servislerin farklı kombinasyonlarda test case'leri yaratılmıştır. Totalde 12 ayrı test methodu tanımlanmış olup hepsinin testleri başarılı(%89.2) bir şekilde gerçekleştirilmiştir.
 
 ### Teknik Gereklilikler
 Visual Studio 2019 <br/>
 Postman <br/>
 MongoDB <br/>
-NuGet Packages (Microsoft.AspNetCore.Mvc.NewtonsoftJson, MongoDB.Driver, MongoDB.Bson)
+NuGet Packages (Microsoft.AspNetCore.Mvc.NewtonsoftJson, MongoDB.Driver, MongoDB.Bson) <br/>
+Fine Code Coverage
