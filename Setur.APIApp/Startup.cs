@@ -60,7 +60,7 @@ namespace Setur.APIApp
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

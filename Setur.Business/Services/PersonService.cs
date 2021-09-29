@@ -17,8 +17,9 @@ namespace Setur.Business.Services
         {
             _personRepository = personRepository;
         }
-        public List<Person> Get() =>
-           _personRepository.Get();
+        public List<Person> Get()=> 
+            _personRepository.Get();
+ 
 
         public Person Get(string id) =>
             _personRepository.Get(id);
