@@ -11,6 +11,7 @@ namespace Setur.Entity.Models
 {
     public class Person
     {
+      
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
@@ -20,6 +21,6 @@ namespace Setur.Entity.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Company { get; set; }
-        public List<Contact> ContactInfo { get; set; }
+        public List<Contact> ContactInfo { get; set; } = new(); // en çok halınan hatalardan birisi new lememek! (null pointer exception)
     }
 }

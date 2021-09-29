@@ -26,16 +26,20 @@ namespace Setur.APIApp.Controllers
         public ActionResult Index()
         {
             var data = _personService.Get();
-            return Json(data);
+            return Ok(data);
         }
 
         // GET: PersonController/id
         [Route("GetWithId")]
         [HttpGet]
-        public ActionResult GetWithId([FromQuery] string id)
+        public ActionResult<Person> GetWithId([FromQuery] string id)
         {
             var data = _personService.Get(id);
-            return Json(data);
+            if (data==null)
+            {
+                return NotFound();
+            }
+            return Ok(data);
         }
 
         // POST: PersonController/Create
@@ -44,7 +48,8 @@ namespace Setur.APIApp.Controllers
         public ActionResult<Person> Create(Person person)
         {
             var data = _personService.Create(person);
-            return Json(data);
+            return Ok(data);
+            //return Json(data);
         }
         
         // POST: PersonController/InsertPhoneInfo
