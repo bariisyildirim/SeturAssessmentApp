@@ -28,30 +28,27 @@ namespace Setur.xUnitTest
         }
 
         [Fact]
-        public void GetAllPersonTest()
+        public void Get_Person_NotNull()
         {
             var controller = new PersonController(_service);
             var result = controller.Index();
 
             Assert.NotNull(result);
-
         }
 
         [Fact]
-        public void Get_Return_OkResult()
+        public void Get_Person_ReturnsOkResult()
         {
             //Arrang
             var controller = new PersonController(_service);
-
             //Act
-            var result = controller.Create(new Setur.Entity.Models.Person() { Name = "Barış", Surname = "Yıldırım", Company = "ASYNC" });
-
+            var result = controller.Index();
             //Assert
-            Assert.IsType<OkObjectResult>(result.Result);
+            Assert.IsType<OkObjectResult>(result);
         }
 
         [Fact]
-        public void GetWithIdTest()
+        public void Get_PersonId_NotNull()
         {
             var controller = new PersonController(_service);
             var result = controller.GetWithId("614f07e3a0f61d01d9348415");
@@ -61,7 +58,7 @@ namespace Setur.xUnitTest
         }
 
         [Fact]
-        public void GetWithId_ReturnsNotFoundResult()
+        public void Get_PersonId_ReturnsNotFoundResult()
         {
             var controller = new PersonController(_service);
             var result = controller.GetWithId("614f07e3a0f61d01d9348455");
@@ -70,51 +67,67 @@ namespace Setur.xUnitTest
         }
 
         [Fact]
-        public void CreateTest()
-        {
-            var controller = new PersonController(_service);
-            var result = controller.Create(new Setur.Entity.Models.Person() { Name = "Barış", Surname = "Yıldırım", Company = "ASYNC" });
-
-            Assert.NotNull(result);
-
-        }
-
-        [Fact]
-        public  void CreateTest_Return_OkResult()
+        public void Post_Person_ReturnsOkResult()
         {
             //Arrang
-            var controller = new PersonController(_service); 
-
+            var controller = new PersonController(_service);
             //Act
             var result = controller.Create(new Setur.Entity.Models.Person() { Name = "Barış", Surname = "Yıldırım", Company = "ASYNC" });
-
             //Assert
             Assert.IsType<OkObjectResult>(result.Result);
         }
 
         [Fact]
-        public void UpdateTest()
+        public void Post_Person_NotNull()
+        {
+            var controller = new PersonController(_service);
+            var result = controller.Create(new Setur.Entity.Models.Person() { Name = "Barış", Surname = "Yıldırım", Company = "ASYNC" });
+
+            Assert.NotNull(result);
+        }
+
+        [Fact]
+        public void Put_Person_NotNull()
         {
             var controller = new PersonController(_service);
             var result = controller.Update(new Setur.Entity.Models.Person()
             { Id = "614f07e3a0f61d01d9348415", Name = "Barış", Surname = "Yıldırım", Company = "ASYNC" });
 
             Assert.NotNull(result);
-
         }
 
         [Fact]
-        public void DeleteTest()
+        public void Put_Person_ReturnsOkResult()
+        {
+            //Arrang
+            var controller = new PersonController(_service);
+            //Act
+            var result = controller.Update(new Setur.Entity.Models.Person() { Name = "Barış", Surname = "Yıldırım", Company = "ASYNC" });
+            //Assert
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public void Delete_Person_NotNull()
         {
             var controller = new PersonController(_service);
             var result = controller.Delete("614f07e3a0f61d01d9348415");
 
             Assert.NotNull(result);
-
         }
 
         [Fact]
-        public void InsertPhoneInfoTest()
+        public void Delete_Person_ReturnsOkResult()
+        {
+            var controller = new PersonController(_service);
+            var result = controller.Delete("614f07e3a0f61d01d9348455");
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public void Post_PhoneInfo_NotNull()
         {
             var controller = new PersonController(_service);
             var result = controller.InsertPhoneInfo("615085bb164bc556e5055969", new Setur.Entity.Models.Contact()
@@ -124,11 +137,24 @@ namespace Setur.xUnitTest
             });
 
             Assert.NotNull(result);
-
         }
 
         [Fact]
-        public void DeletePhoneInfoTest()
+        public void Post_PhoneInfo_ReturnsOkResult()
+        {
+            var controller = new PersonController(_service);
+            var result = controller.InsertPhoneInfo("615085bb164bc556e5055969", new Setur.Entity.Models.Contact()
+            {
+                Content = "Adana",
+                Type = Setur.Entity.Models.Enums.InformationType.Location
+            });
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result.Result);
+        }
+
+        [Fact]
+        public void Delete_PhoneInfo_NotNull()
         {
             var controller = new PersonController(_service);
             var result = controller.DeletePhoneInfo("615085dc164bc556e505596a", new Setur.Entity.Models.Contact()
@@ -141,13 +167,37 @@ namespace Setur.xUnitTest
         }
 
         [Fact]
-        public void ReportTest()
+        public void Delete_PhoneInfo_ReturnsOkResult()
+        {
+            var controller = new PersonController(_service);
+            var result = controller.DeletePhoneInfo("615085bb164bc556e5055969", new Setur.Entity.Models.Contact()
+            {
+                Content = "Adana",
+                Type = Setur.Entity.Models.Enums.InformationType.Location
+            });
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result.Result);
+        }
+
+        [Fact]
+        public void Get_Report_NotNull()
         {
             var controller = new PersonController(_service);
             var result = controller.Report();
 
+            //Assert
             Assert.NotNull(result);
+        }
 
+        [Fact]
+        public void Get_Report_ReturnsOkResult()
+        {
+            var controller = new PersonController(_service);
+            var result = controller.Report();
+
+            // Assert
+            Assert.IsType<OkObjectResult>(result);
         }
     }
 }

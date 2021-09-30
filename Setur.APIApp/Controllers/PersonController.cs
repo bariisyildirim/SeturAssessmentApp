@@ -64,7 +64,7 @@ namespace Setur.APIApp.Controllers
         
         // DELETE: PersonController/DeletePhoneInfo
         [Route("DeletePhoneInfo")]
-        [HttpPost]
+        [HttpDelete]
         public ActionResult<Person> DeletePhoneInfo([FromHeader] string id, [FromBody] Contact contact)
         {
             var data = _personService.RemoveContact(id, contact);
