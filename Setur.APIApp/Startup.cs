@@ -39,9 +39,9 @@ namespace Setur.APIApp
             services.AddSingleton<IPersonDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<PersonDatabaseSettings>>().Value);
 
-            services.AddSingleton<IPersonRepository, PersonRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
 
-            services.AddSingleton<IPersonService, PersonService>();
+            services.AddScoped<IPersonService, PersonService>();
 
             services.AddControllers().AddNewtonsoftJson(options => options.UseMemberCasing());
         }

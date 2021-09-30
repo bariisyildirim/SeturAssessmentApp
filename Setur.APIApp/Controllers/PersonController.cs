@@ -49,7 +49,6 @@ namespace Setur.APIApp.Controllers
         {
             var data = _personService.Create(person);
             return Ok(data);
-            //return Json(data);
         }
         
         // POST: PersonController/InsertPhoneInfo
@@ -59,7 +58,7 @@ namespace Setur.APIApp.Controllers
         {
             var data = _personService.AddContact(id, contact);
 
-            return Json(data);
+            return Ok(data);
         }
 
         
@@ -70,7 +69,7 @@ namespace Setur.APIApp.Controllers
         {
             var data = _personService.RemoveContact(id, contact);
 
-            return Json(data);
+            return Ok(data);
         }
         
 
@@ -80,7 +79,7 @@ namespace Setur.APIApp.Controllers
         public ActionResult Update([FromBody] Person person)
         {
             _personService.Update(person);
-            return Json(true);
+            return Ok(true);
         }
 
         // DELETE: PersonController/Delete/id
@@ -90,7 +89,7 @@ namespace Setur.APIApp.Controllers
         public ActionResult Delete([FromHeader] string id)
         {
             _personService.Remove(id);
-            return Json(true);
+            return Ok(true);
         }
 
         [Route("Report")]
@@ -98,7 +97,7 @@ namespace Setur.APIApp.Controllers
 
         public ActionResult Report()
         {
-            return Json(_personService.Report());
+            return Ok(_personService.Report());
         }
 
     }
